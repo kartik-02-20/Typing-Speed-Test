@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo">type<span>/</span>test</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">wpm</div>
+      <div class="stat-value" id="wpm-display">0</div>
+      <div class="stat-unit">words / min</div>
+    </div>
+    <div class="stat">
+      <div class="timer-wrap">
+        <svg class="timer-svg" viewBox="0 0 56 56" width="56" height="56">
+          <circle class="timer-bg" cx="28" cy="28" r="22"/>
+          <circle class="timer-ring" id="timer-ring" cx="28" cy="28" r="22"/>
+        </svg>
+        <div class="timer-text" id="timer-display">60</div>
+      </div>
+      <div class="stat-unit">seconds</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">accuracy</div>
+      <div class="stat-value" id="acc-display">100</div>
+      <div class="stat-unit">percent</div>
+    </div>
+  </div>
+
+  <div class="mode-bar">
+    <button class="mode-btn active" data-time="30">30s</button>
+    <button class="mode-btn" data-time="60">60s</button>
+    <button class="mode-btn" data-time="120">120s</button>
+  </div>
+
+  <div class="typing-box" id="typing-box">
+    <div class="text-display" id="text-display"></div>
+    <input
+      type="text"
+      class="hidden-input"
+      id="hidden-input"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+    >
+  </div>
+
+  <p class="click-hint" id="click-hint">[ click the box or press any key to start ]</p>
+
+  <div class="results" id="results">
+    <div class="result-wpm" id="res-wpm">0</div>
+    <div class="result-label">words per minute</div>
+    <div id="grade-badge" class="grade-badge"></div>
+    <div class="result-grid">
+      <div class="result-item">
+        <div class="val" id="res-acc">0%</div>
+        <div class="lbl">accuracy</div>
+      </div>
+      <div class="result-item">
+        <div class="val" id="res-correct">0</div>
+        <div class="lbl">correct</div>
+      </div>
+      <div class="result-item">
+        <div class="val" id="res-errors">0</div>
+        <div class="lbl">errors</div>
+      </div>
+    </div>
+
+    <div class="leaderboard">
+      <div class="lb-title">— best scores —</div>
+      <div id="lb-list"></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="reset-btn">↺ reset</button>
+    <button class="btn primary" id="new-btn">new test ↗</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
